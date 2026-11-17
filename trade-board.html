@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIBEX - Trade Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="tb-page">
+
+    <!-- Top Navbar -->
+    <header class="tb-navbar">
+        <h2>VIBEX</h2>
+        <input type="search" placeholder="Search Trade Board...">
+        <a href="index.html">Dashboard</a>
+        <div class="tb-profile">M</div>
+    </header>
+
+    <div class="tb-layout">
+
+        <!-- Left Sidebar -->
+        <aside class="tb-sidebar">
+            <h3>Trade Board</h3>
+            <a href="#">🏠 Feed</a>
+            <a href="#">👥 My Agents</a>
+            <a href="#">💼 Business Posts</a>
+            <a href="#">📌 Saved Posts</a>
+            <a href="#">🔔 Notifications</a>
+            <a href="index.html">⬅ Dashboard</a>
+        </aside>
+
+        <!-- Main Feed -->
+        <main class="tb-feed">
+
+            <h2>Trade Board</h2>
+            <p class="tb-subtitle">Connect, Share & Grow Your Business</p>
+
+            <!-- Create Post -->
+            <div class="tb-card tb-create">
+                <h3>Create a Post</h3>
+                <textarea id="postText"
+                    placeholder="What's happening in your business?"></textarea>
+
+                <div class="tb-post-options">
+                    <select id="postAudience">
+                        <option value="My Agents">My Agents</option>
+                        <option value="My Customers">My Customers</option>
+                        <option value="All Bangladesh Agents">All Bangladesh Agents</option>
+                    </select>
+
+                    <button onclick="createPost()">Post</button>
+                </div>
+            </div>
+
+            <!-- Posts -->
+            <div id="postFeed">
+
+                <div class="tb-card tb-post">
+                    <div class="tb-post-user">
+                        <div class="tb-avatar">A</div>
+                        <div>
+                            <strong>Abdullah Travels</strong>
+                            <small>Travel Agency · 2 hours ago</small>
+                        </div>
+                    </div>
+
+                    <p>Saudi Arabia Umrah Package Available!
+                    Contact us for details and booking.</p>
+
+                    <div class="tb-post-audience">Audience: My Agents</div>
+
+                    <div class="tb-actions">
+                        <button onclick="likePost(this)">👍 Like</button>
+                        <button onclick="alert('Comment feature coming soon!')">💬 Comment</button>
+                        <button onclick="alert('Share feature coming soon!')">↗ Share</button>
+                    </div>
+                </div>
+
+                <div class="tb-card tb-post">
+                    <div class="tb-post-user">
+                        <div class="tb-avatar">M</div>
+                        <div>
+                            <strong>Masum Travels</strong>
+                            <small>Travel Agent · 5 hours ago</small>
+                        </div>
+                    </div>
+
+                    <p>Dhaka to Jeddah Ticket Available.
+                    Interested agents can contact me.</p>
+
+                    <div class="tb-post-audience">Audience: All Bangladesh Agents</div>
+
+                    <div class="tb-actions">
+                        <button onclick="likePost(this)">👍 Like</button>
+                        <button onclick="alert('Comment feature coming soon!')">💬 Comment</button>
+                        <button onclick="alert('Share feature coming soon!')">↗ Share</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="tb-right">
+            <div class="tb-card">
+                <h3>Trade Board Info</h3>
+                <p>Connect with your agents and grow your travel business.</p>
+            </div>
+
+            <div class="tb-card">
+                <h3>Quick Links</h3>
+                <a href="#">My Network</a>
+                <a href="#">Business Updates</a>
+                <a href="#">Help Center</a>
+            </div>
+        </aside>
+
+    </div>
+</div>
+
+<script>
+    function createPost() {
+        const text = document.getElementById("postText").value.trim();
+        const audience = document.getElementById("postAudience").value;
+
+        if (text === "") {
+            alert("Please write something first!");
+            return;
+        }
+
+        const postFeed = document.getElementById("postFeed");
+
+        const newPost = document.createElement("div");
+        newPost.className = "tb-card tb-post";
+
+        newPost.innerHTML = `
+            <div class="tb-post-user">
+                <div class="tb-avatar">M</div>
+                <div>
+                    <strong>My Account</strong>
+                    <small>Just now</small>
+                </div>
+            </div>
+            <p></p>
+            <div class="tb-post-audience"></div>
+            <div class="tb-actions">
+                <button onclick="likePost(this)">👍 Like</button>
+                <button onclick="alert('Comment feature coming soon!')">💬 Comment</button>
+                <button onclick="alert('Share feature coming soon!')">↗ Share</button>
+            </div>
+        `;
+
+        newPost.querySelector("p").textContent = text;
+        newPost.querySelector(".tb-post-audience").textContent =
+            "Audience: " + audience;
+
+        postFeed.prepend(newPost);
+
+        document.getElementById("postText").value = "";
+    }
+
+    function likePost(button) {
+        button.classList.toggle("liked");
+        button.textContent = button.classList.contains("liked")
+            ? "👍 Liked"
+            : "👍 Like";
+    }
+</script>
+
+</body>
+</html>

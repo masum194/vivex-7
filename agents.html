@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIBEX Agent Accounts</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="agent-page">
+
+    <header class="agent-header">
+        <h2>VIBEX <span>Agent Accounts</span></h2>
+        <a href="index.html">← Dashboard</a>
+    </header>
+
+    <main class="agent-container">
+
+        <h1>My Agents</h1>
+        <p>Manage your agent accounts and transactions</p>
+
+        <!-- Search and Add Agent -->
+        <div class="agent-toolbar">
+
+            <input
+                type="text"
+                id="searchAgent"
+                placeholder="Search Agent..."
+            >
+
+            <button onclick="openAddAgent()">
+                + Add New Agent
+            </button>
+
+        </div>
+
+        <!-- Add Agent Form -->
+        <div class="add-agent-form" id="addAgentForm">
+
+            <h3>Add New Agent</h3>
+
+            <input type="text" id="newAgentName" placeholder="Agent Name">
+
+            <input type="text" id="newAgentPhone" placeholder="Phone Number">
+
+            <div>
+                <button onclick="addNewAgent()">Save Agent</button>
+                <button onclick="closeAddAgent()">Cancel</button>
+            </div>
+
+        </div>
+
+        <!-- Agent Cards -->
+        <div class="agent-list" id="agentList"></div>
+
+        <!-- Agent History -->
+        <section class="agent-details" id="agentDetails">
+
+            <h2>Select an Agent</h2>
+
+            <p>Click All History to see full account history.</p>
+
+        </section>
+
+    </main>
+</div>
+
+<script src="agents.js"></script>
+
+</body>
+</html>

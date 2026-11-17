@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIBEX Chat Box</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="vibex-chat">
+
+    <!-- Header -->
+    <header class="chat-topbar">
+        <div class="chat-brand">
+            <h2>VIBEX</h2>
+            <span>CHAT BOX</span>
+        </div>
+
+        <a href="index.html" class="dashboard-link">
+            Dashboard
+        </a>
+    </header>
+
+    <main class="chat-content">
+
+        <!-- Search -->
+        <section class="chat-search-section">
+            <h1>Messages</h1>
+            <p>Connect with your Agents, Customers and Businesses.</p>
+
+            <div class="chat-search">
+                <span>⌕</span>
+                <input
+                    type="search"
+                    id="recipientSearch"
+                    placeholder="Search Agent, Customer or Business..."
+                >
+            </div>
+
+            <div class="search-results" id="searchResults"></div>
+        </section>
+
+        <!-- Message Composer -->
+        <section class="message-composer">
+
+            <div class="composer-heading">
+                <h2>New Message</h2>
+                <span>VIBEX Broadcast</span>
+            </div>
+
+            <textarea
+                id="messageText"
+                placeholder="Write your message here..."
+            ></textarea>
+
+            <div class="audience-heading">
+                <h3>Select Audience</h3>
+                <small>Who do you want to message?</small>
+            </div>
+
+            <div class="audience-grid">
+
+                <button class="audience-option selected"
+                    data-audience="Agent" onclick="selectAudience(this)">
+                    <span>👤</span>
+                    <strong>Agent</strong>
+                    <small>Send to agents</small>
+                </button>
+
+                <button class="audience-option"
+                    data-audience="Customer" onclick="selectAudience(this)">
+                    <span>👥</span>
+                    <strong>Customer</strong>
+                    <small>Send to customers</small>
+                </button>
+
+                <button class="audience-option"
+                    data-audience="Business" onclick="selectAudience(this)">
+                    <span>🏢</span>
+                    <strong>Business</strong>
+                    <small>Send to businesses</small>
+                </button>
+
+                <button class="audience-option"
+                    data-audience="All" onclick="selectAudience(this)">
+                    <span>🌍</span>
+                    <strong>All Send</strong>
+                    <small>All audiences</small>
+                </button>
+
+            </div>
+
+            <div class="composer-footer">
+                <span id="selectedLabel">Selected: Agent</span>
+
+                <button class="send-message-btn" onclick="sendMessage()">
+                    Send Message ➤
+                </button>
+            </div>
+
+            <p id="sendStatus"></p>
+
+        </section>
+
+        <!-- Recent History -->
+        <section class="message-history">
+
+            <div class="history-heading">
+                <h2>Recent Messages</h2>
+                <span>Message History</span>
+            </div>
+
+            <div id="historyList">
+                <div class="empty-history">
+                    <span>💬</span>
+                    <p>No messages yet</p>
+                    <small>Your sent messages will appear here.</small>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="chat-box.js"></script>
+
+</body>
+</html>

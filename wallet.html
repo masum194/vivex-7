@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIBEX Wallet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wallet-page">
+
+    <header class="wallet-header">
+        <h2>VIBEX <span>Wallet</span></h2>
+        <a href="index.html">← Dashboard</a>
+    </header>
+
+    <main class="wallet-container">
+
+        <h1>My Wallet</h1>
+        <p class="wallet-subtitle">Manage your money and transactions</p>
+
+        <section class="wallet-cards">
+
+            <div class="wallet-card main-balance">
+                <p>Total Balance</p>
+                <h2>৳ <span id="balance">50000</span></h2>
+                <small>Your current wallet balance</small>
+            </div>
+
+            <div class="wallet-card">
+                <p>Total Income</p>
+                <h2>৳ <span id="income">50000</span></h2>
+            </div>
+
+            <div class="wallet-card">
+                <p>Total Expense</p>
+                <h2>৳ <span id="expense">0</span></h2>
+            </div>
+
+        </section>
+
+        <section class="wallet-actions">
+
+            <div class="wallet-box">
+                <h3>Add Money</h3>
+                <input type="number" id="addAmount" placeholder="Enter amount">
+                <button onclick="addMoney()">Add Money</button>
+            </div>
+
+            <div class="wallet-box">
+                <h3>Withdraw Money</h3>
+                <input type="number" id="withdrawAmount" placeholder="Enter amount">
+                <button onclick="withdrawMoney()">Withdraw</button>
+            </div>
+
+        </section>
+
+        <section class="transaction-section">
+            <h2>Transaction History</h2>
+
+            <div class="transaction-list" id="transactionList">
+                <p class="empty-message">No transactions yet.</p>
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<script src="wallet.js"></script>
+</body>
+</html>
